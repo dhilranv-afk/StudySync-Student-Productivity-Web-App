@@ -1,139 +1,103 @@
-StudySync – Student Productivity Web App
-📌 Overview
+# StudySync – Student Productivity Web App
 
+## 📌 Overview
 StudySync is a web-based productivity tool designed to help students manage tasks, track study sessions, and monitor their progress.
 
 This project was built as part of a collaborative assignment focusing on teamwork, GitHub workflow, and frontend development.
 
-🎯 Features
+---
 
-✅ Task Manager (add, complete, delete tasks)
+## 🎯 Features
 
-⏱️ Study Timer (Pomodoro-style focus sessions)
+- Task Manager (add, complete, delete tasks)
+- Study Timer (Pomodoro-style focus sessions)
+- Progress Dashboard (charts using Chart.js)
+- Habit Tracker (daily streak tracking)
+- Local Storage (data saved in browser)
 
-📊 Progress Dashboard (charts using Chart.js)
+---
 
-🔥 Habit Tracker (daily streak tracking)
+## 🧰 Technologies Used
 
-💾 Local Storage (data saved in browser)
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+- Chart.js
+- GitHub Pages (deployment)
 
-🧰 Technologies Used
+---
 
-HTML5
-
-CSS3
-
-JavaScript
-
-Bootstrap
-
-Chart.js
-
-GitHub Pages (deployment)
-
-🚀 Live Demo
-
+## 🚀 Live Demo
 (Add your GitHub Pages link here)
 
-📸 Screenshots
+---
 
-(Add screenshots in /docs/screenshots and link them here)
+## 📸 Screenshots
+
+Add screenshots in /docs/screenshots and link them here.
 
 Example:
-
 ![Dashboard](docs/screenshots/dashboard.png)
-![Task Manager](docs/screenshots/tasks.png)
-👥 Team Roles
+![Tasks](docs/screenshots/tasks.png)
 
-Frontend Developer
+---
 
-Designed layout using HTML/CSS
+## 👥 Team Roles
 
-Implemented responsive design
+- Frontend Developer – UI and layout
+- JavaScript Developer – functionality
+- Team Lead – GitHub management
+- Design Specialist – UI/UX
 
-JavaScript Developer
+---
 
-Built core functionality (tasks, timer, storage)
+## 📂 Project Structure
 
-Team Lead
+css/        → Styles  
+js/         → JavaScript logic  
+pages/      → Additional pages  
+assets/     → Images and icons  
+docs/       → Documentation and screenshots  
 
-Managed GitHub repo, issues, and pull requests
+---
 
-Design Specialist
+## 🔄 Git Workflow
 
-Improved UI/UX and visual consistency
+- feature/task-manager
+- feature/timer
+- feature/dashboard
 
-📂 Project Structure
-css/        → Styles
-js/         → JavaScript logic
-pages/      → Additional pages
-assets/     → Images and icons
-docs/       → Documentation and screenshots
-🔄 Git Workflow
+All changes are made using Pull Requests and reviewed before merging.
 
-Feature branches used:
+---
 
-feature/task-manager
+## ⏳ Timeline
 
-feature/timer
+- Week 1 – Planning & setup  
+- Week 2 – Layout & styling  
+- Week 3 – Core features  
+- Week 4 – Testing & deployment  
 
-feature/dashboard
+---
 
-All changes made through Pull Requests
+## 📚 What We Learned
 
-Code reviewed before merging into main
+- Team collaboration using GitHub  
+- JavaScript functionality  
+- Debugging and problem-solving  
+- UI/UX design basics  
 
-📋 Project Management
+---
 
-GitHub Issues used for task tracking
+## ⚠️ Challenges
 
-Project Board used with:
+- Debugging JavaScript  
+- Merge conflicts  
+- Keeping consistent code  
 
-To Do
+---
 
-In Progress
+## 📎 Notes
 
-Done
-
-⏳ Timeline
-
-Week 1 – Planning & setup
-
-Week 2 – Layout & styling
-
-Week 3 – Core features
-
-Week 4 – Testing & deployment
-
-📚 What We Learned
-
-How to collaborate using GitHub
-
-Managing merge conflicts
-
-Writing modular JavaScript
-
-Designing user-friendly interfaces
-
-⚠️ Challenges
-
-Debugging JavaScript logic
-
-Keeping consistent code structure
-
-Coordinating team contributions
-
-📎 Submission Info
-
-Project created for course assignment.
-All work was completed collaboratively by the team.
-
-💡 3 Small Upgrades (Boost Your Grade Easily)
-
-Add these and your repo will look way more professional:
-
-1. Badges (top of README)
-![Status](https://img.shields.io/badge/status-complete-green)
-![Made With](https://img.shields.io/badge/made%20with-JavaScript-yellow)
-2. Live Demo Button
-[![Live Demo](https://img.shields.io/badge/demo-live-blue)](YOUR_LINK)
+This project was created for academic purposes as part of a course assignment.
