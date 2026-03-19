@@ -45,10 +45,10 @@ Example:
 
 ## 👥 Team Roles
 
-- Frontend Developer – UI and layout
-- JavaScript Developer – functionality
-- Team Lead – GitHub management
-- Design Specialist – UI/UX
+Kiera Brusey / - Frontend Developer – UI and layout
+Prince Onyido - JavaScript Developer – functionality
+Ranveer Dhillon - Team Lead – GitHub management
+Miguel Aramburo Arias - Design Specialist – UI/UX
 
 ---
 
