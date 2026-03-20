@@ -46,7 +46,7 @@ Example:
 ## 👥 Team Roles
 
 - Kiera Brusey / Ranveer Dhillon - Frontend Developer – UI and layout
-- vPrince Onyido - JavaScript Developer – functionality
+- Prince Onyido - JavaScript Developer – functionality
 - Ranveer Dhillon - Team Lead – GitHub management
 - Miguel Aramburo Arias - Design Specialist – UI/UX
 
