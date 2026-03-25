@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Create Assignment</title>
+</head>
+<body>
+    </header>
+    <h1>StudySync</h1>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="create-assignment.html">Create Assignment</a>
+      <a href="assinments.html">Assignments</a>
+    </nav>
+  
+    <header>
+
+    <h2>Create a New Assignment</h2>
+
+    <form id="assignmentForm">
+        <label>Assignment Title</label><br>
+        <input type="text" id="title" required><br><br>
+
+        <label>Course Name</label><br>
+        <input type="text" id="course" required><br><br>
+
+        <label>Due Date</label><br>
+        <input type="datetime-local" id="dueDate" required><br><br>
+
+        <label>Importance</label><br>
+        <select id="importance">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br><br>
+
+        <label>Creator Name</label><br>
+        <select id="creator">
+            <option value="Kiera Brusey">Kiera Brusey</option>
+            <option value="Miguel Aramburo Arias">Miguel Aramburo Arias</option>
+            <option value="Prince Onyido">Prince Onyido</option>
+            <option value="Ranveer Dhillon">Ranveer Dhillon</option>
+        </select><br><br>
+
+        <button type="submit">Create Assignment</button>
+
+    </form>
+
+    <div id="message"></div>
+</body>
+</html>
