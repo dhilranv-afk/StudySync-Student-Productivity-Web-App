@@ -1,7 +1,7 @@
 let time = 1500;
 let interval;
 
-function startTimer() {
+export function startTimer() {
   if (interval) return;
 
   interval = setInterval(() => {

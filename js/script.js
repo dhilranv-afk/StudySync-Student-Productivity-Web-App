@@ -3,6 +3,8 @@
 import { addTask } from "./tasks.js";
 import { startTimer, resetTimer } from "./timer.js";
 
+console.log("script is running");
+
 window.addTask = addTask;
 window.startTimer = startTimer;
 window.resetTimer = resetTimer;
@@ -41,3 +43,48 @@ if (form) {
         form.reset();
     });
 }
+
+//Show assignments on homepage
+
+function displayAssignments() {
+
+  const upcoming = document.getElementById("upcomingAssignments");
+  const past = document.getElementById("pastAssignments");
+
+  if (!upcoming || !past) return;
+
+  upcoming.innerHTML = "";
+  past.innerHTML = "";
+
+  for (let i = 0; i < assignments.length; i++) {
+
+    const a = assignments[i];
+
+    const card = document.createElement("div");
+
+    const title = document.createElement("h3");
+    title.textContent = a.title;
+
+    const course = document.createElement("p");
+    course.textContent = a.course;
+
+    const date = document.createElement("p");
+    date.textContent = "Due: " + a.dueDate;
+
+    card.appendChild(title);
+    card.appendChild(course);
+    card.appendChild(date);
+
+    const today = new Date();
+    const due = new Date(a.dueDate);
+
+    if (due >= today) {
+      upcoming.appendChild(card);
+    } else {
+      past.appendChild(card);
+    }
+
+  }
+}
+
+displayAssignments();

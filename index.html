@@ -3,10 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>StudySync</title>
-  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="./js/script.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>StudySync</h1>
+  <header>
+    <h1>StudySync</h1>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="create-assignment.html">Create Assignment</a>
+      <a href="assignments.html">Assignments</a>
+    </nav>
+  
+  </header>
+
+    <div id="notification"></div>
+
+    <section>
+      <h2>Upcoming Assignments</h2>
+      <div id="upcomingAssignments"></div>
+    </section>
+
+    <section>
+      <h2>Past Due Assignments</h2>
+      <div id="pastAssignments"></div>
+    </section>
+
 
   <h2>Tasks</h2>
   <input type="text" id="taskInput" placeholder="Enter task">
@@ -18,7 +41,5 @@
   <button onclick="startTimer()">Start</button>
   <button onclick="resetTimer()">Reset</button>
 
-  <script src="js/tasks.js"></script>
-  <script src="js/timer.js"></script>
 </body>
 </html>
