@@ -1,13 +1,11 @@
 // Import tasks.js and timer.js
 
-import { addTask } from "./tasks.js";
-import { startTimer, resetTimer } from "./timer.js";
+// bug tester
 
-console.log("script is running");
 
-window.addTask = addTask;
-window.startTimer = startTimer;
-window.resetTimer = resetTimer;
+//window.addTask = addTask;
+//window.startTimer = startTimer;
+//window.resetTimer = resetTimer;
 
 // Assignments Array
 let assignments = JSON.parse(localStorage.getItem("assignments")) || [];
@@ -39,10 +37,14 @@ if (form) {
         localStorage.setItem("assignments", JSON.stringify(assignments));
 
         document.getElementById("message").textContent = "Assignment saved sucessfully";
+  
 
         form.reset();
+
     });
 }
+
+console.log(form);
 
 //Show assignments on homepage
 
