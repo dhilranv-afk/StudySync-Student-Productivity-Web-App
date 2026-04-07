@@ -29,7 +29,7 @@ This project was built as part of a collaborative assignment focusing on teamwor
 ---
 
 ## 🚀 Live Demo
-(Add your GitHub Pages link here)
+https://dhilranv-afk.github.io/StudySync-Student-Productivity-Web-App/
 
 ---
 
