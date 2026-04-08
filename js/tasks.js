@@ -39,3 +39,13 @@ function addTask() {
 }
 
 window.onload = renderTasks;
+
+const btn = document.createElement("button");
+btn.textContent = "X";
+btn.onclick = (e) => {
+  e.stopPropagation();
+  tasks.splice(index, 1);
+  saveTasks();
+  renderTasks();
+};
+li.appendChild(btn);
