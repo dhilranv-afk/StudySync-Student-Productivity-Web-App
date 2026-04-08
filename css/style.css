@@ -1,8 +1,35 @@
 body {
-  font-family: Arial;
-  text-align: center;
-  background: #f4f4f4;
+  background: #f4f6f8;
+  font-family: Arial, sans-serif;
 }
+
+h1 {
+  color: #333;
+}
+
 button {
-  margin: 5px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
