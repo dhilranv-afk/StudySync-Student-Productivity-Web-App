@@ -33,13 +33,8 @@ https://dhilranv-afk.github.io/StudySync-Student-Productivity-Web-App/
 
 ---
 
-## 📸 Screenshots
-
-Add screenshots in /docs/screenshots and link them here.
-
-Example:
-![Dashboard](docs/screenshots/dashboard.png)
-![Tasks](docs/screenshots/tasks.png)
+## 🎥 Demo
+[Demo](assets/demo.mov)
 
 ---
 
