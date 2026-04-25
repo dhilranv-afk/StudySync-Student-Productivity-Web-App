@@ -36,6 +36,8 @@ https://dhilranv-afk.github.io/StudySync-Student-Productivity-Web-App/
 ## 🎥 Demo
 [Demo](assets/demo.mov)
 
+(https://youtu.be/vNaPJjxiOlw)
+
 ---
 
 ## 👥 Team Roles
