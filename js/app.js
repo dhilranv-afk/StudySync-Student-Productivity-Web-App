@@ -1,55 +1,73 @@
 import {
   db, collection, addDoc, getDocs,
-  deleteDoc, updateDoc, doc
+  deleteDoc, updateDoc, doc, setDoc
 } from "./js/firebase.js";
 
 let tasks = [];
+let history = {};
 let chart;
 
-// DOM
-const list = document.getElementById("taskList");
-const input = document.getElementById("taskInput");
+/* ================= HELPERS ================= */
+function getToday() {
+  return new Date().toISOString().split("T")[0];
+}
 
 /* ================= LOAD ================= */
-async function loadTasks() {
-  try {
-    const snap = await getDocs(collection(db, "tasks"));
-    tasks = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-    render();
-  } catch (err) {
-    console.error(err);
-  }
+async function loadData() {
+  const taskSnap = await getDocs(collection(db, "tasks"));
+  tasks = taskSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+  const histSnap = await getDocs(collection(db, "history"));
+  history = {};
+  histSnap.docs.forEach(d => history[d.id] = d.data());
+
+  updateHistory();
+  render();
 }
 
-/* ================= ADD ================= */
-async function addTask() {
-  if (!input.value.trim()) return;
+/* ================= HISTORY ================= */
+async function updateHistory() {
+  const today = getToday();
 
-  await addDoc(collection(db, "tasks"), {
-    text: input.value,
-    done: false
+  const completed = tasks.filter(t => t.done).length;
+  const total = tasks.length;
+
+  const current = history[today] || { sessions: 0 };
+
+  await setDoc(doc(db, "history", today), {
+    completed,
+    total,
+    sessions: current.sessions
   });
 
-  input.value = "";
-  loadTasks();
+  history[today] = {
+    completed,
+    total,
+    sessions: current.sessions
+  };
 }
 
-/* ================= TOGGLE ================= */
+/* ================= TASK CRUD ================= */
+async function addTask(text) {
+  await addDoc(collection(db, "tasks"), { text, done: false });
+  loadData();
+}
+
 async function toggleTask(task) {
   await updateDoc(doc(db, "tasks", task.id), {
     done: !task.done
   });
-  loadTasks();
+  loadData();
 }
 
-/* ================= DELETE ================= */
 async function deleteTask(task) {
   await deleteDoc(doc(db, "tasks", task.id));
-  loadTasks();
+  loadData();
 }
 
 /* ================= RENDER ================= */
 function render() {
+  const list = document.getElementById("taskList");
   list.innerHTML = "";
 
   tasks.forEach(task => {
@@ -63,8 +81,7 @@ function render() {
     btn.textContent = "❌";
     btn.onclick = () => deleteTask(task);
 
-    li.appendChild(span);
-    li.appendChild(btn);
+    li.append(span, btn);
     list.appendChild(li);
   });
 
@@ -76,28 +93,38 @@ function render() {
 
 /* ================= CHART ================= */
 function updateChart() {
-  const done = tasks.filter(t => t.done).length;
-  const total = tasks.length;
+  const today = history[getToday()] || { completed: 0, total: 0 };
 
   if (!chart) {
     chart = new Chart(document.getElementById("chart"), {
       type: "doughnut",
       data: {
         labels: ["Done", "Remaining"],
-        datasets: [{ data: [done, total - done] }]
+        datasets: [{
+          data: [today.completed, today.total - today.completed]
+        }]
       }
     });
   } else {
-    chart.data.datasets[0].data = [done, total - done];
+    chart.data.datasets[0].data = [
+      today.completed,
+      today.total - today.completed
+    ];
     chart.update();
   }
 }
 
 /* ================= SCORE ================= */
 function updateScore() {
-  const done = tasks.filter(t => t.done).length;
-  const total = tasks.length;
-  const score = total ? Math.round((done / total) * 100) : 0;
+  const today = history[getToday()] || { completed: 0, total: 0, sessions: 0 };
+
+  let taskScore = today.total
+    ? (today.completed / today.total) * 70
+    : 0;
+
+  let sessionScore = Math.min(today.sessions * 10, 30);
+
+  const score = Math.round(taskScore + sessionScore);
 
   document.getElementById("score").innerText = score;
 }
@@ -107,13 +134,24 @@ function updateInsights() {
   const list = document.getElementById("insightsList");
   list.innerHTML = "";
 
-  const done = tasks.filter(t => t.done).length;
+  const today = history[getToday()] || { completed: 0 };
+  const last7 = [];
 
-  let msg = done === 0
-    ? "Start small today 🚀"
-    : done > 3
-    ? "Great productivity 🔥"
-    : "Keep going 💪";
+  for (let i = 0; i < 7; i++) {
+    let d = new Date();
+    d.setDate(d.getDate() - i);
+    let key = d.toISOString().split("T")[0];
+    last7.push(history[key]?.completed || 0);
+  }
+
+  const avg = last7.reduce((a,b)=>a+b,0)/7;
+
+  let msg =
+    today.completed > avg
+      ? "🔥 Above weekly average"
+      : today.completed === 0
+      ? "⚠️ No progress today"
+      : "📊 Slightly below average";
 
   const li = document.createElement("li");
   li.textContent = msg;
@@ -125,24 +163,40 @@ function updateHeatmap() {
   const container = document.getElementById("heatmap");
   container.innerHTML = "";
 
-  for (let i = 0; i < 28; i++) {
+  for (let i = 27; i >= 0; i--) {
+    let d = new Date();
+    d.setDate(d.getDate() - i);
+    let key = d.toISOString().split("T")[0];
+
+    let val =
+      (history[key]?.completed || 0) +
+      (history[key]?.sessions || 0);
+
+    let level = 0;
+    if (val > 0) level = 1;
+    if (val > 2) level = 2;
+    if (val > 4) level = 3;
+    if (val > 6) level = 4;
+
     const div = document.createElement("div");
-    div.className = "day level-" + Math.floor(Math.random()*4);
+    div.className = "day level-" + level;
     container.appendChild(div);
   }
 }
 
 /* ================= EXPORT ================= */
 function exportCSV() {
-  let csv = "Task,Status\n";
-  tasks.forEach(t => {
-    csv += `${t.text},${t.done}\n`;
+  let csv = "Date,Completed,Total,Sessions\n";
+
+  Object.keys(history).forEach(date => {
+    const h = history[date];
+    csv += `${date},${h.completed},${h.total},${h.sessions}\n`;
   });
 
   const blob = new Blob([csv]);
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "tasks.csv";
+  a.download = "studysync.csv";
   a.click();
 }
 
@@ -154,12 +208,23 @@ function startTimer() {
 
   document.getElementById("cup").classList.add("active");
 
-  interval = setInterval(() => {
+  interval = setInterval(async () => {
     if (time <= 0) {
       clearInterval(interval);
       interval = null;
+
+      const today = getToday();
+      const current = history[today] || { sessions: 0 };
+
+      await setDoc(doc(db, "history", today), {
+        ...current,
+        sessions: (current.sessions || 0) + 1
+      });
+
+      loadData();
       return;
     }
+
     time--;
     updateTimer();
   }, 1000);
@@ -180,7 +245,9 @@ function updateTimer() {
 }
 
 /* ================= EVENTS ================= */
-document.getElementById("addBtn").onclick = addTask;
+document.getElementById("addBtn").onclick =
+  () => addTask(document.getElementById("taskInput").value);
+
 document.getElementById("exportBtn").onclick = exportCSV;
 document.getElementById("startTimer").onclick = startTimer;
 document.getElementById("resetTimer").onclick = resetTimer;
@@ -188,4 +255,4 @@ document.getElementById("darkToggle").onclick =
   () => document.body.classList.toggle("dark");
 
 /* INIT */
-loadTasks();
+loadData();
