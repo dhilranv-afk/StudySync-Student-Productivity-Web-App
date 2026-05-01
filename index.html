@@ -4,15 +4,13 @@
   <meta charset="UTF-8">
   <title>StudySync</title>
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <header>
   <h1>☕ StudySync</h1>
-  <button onclick="toggleDark()">🌙</button>
+  <button id="darkToggle">🌙</button>
 </header>
 
 <div class="container">
@@ -21,7 +19,7 @@
   <div class="card">
     <h2>Tasks</h2>
     <input id="taskInput" placeholder="Add a task..." />
-    <button onclick="handleAddTask()">Add</button>
+    <button id="addBtn">Add</button>
     <ul id="taskList"></ul>
   </div>
 
@@ -36,8 +34,8 @@
     </div>
 
     <h1 id="timer">25:00</h1>
-    <button onclick="startTimer()">Start</button>
-    <button onclick="resetTimer()">Reset</button>
+    <button id="startTimer">Start</button>
+    <button id="resetTimer">Reset</button>
   </div>
 
   <!-- DASHBOARD -->
@@ -51,21 +49,14 @@
       <h1 id="score">0</h1>
     </div>
 
-    <div class="insights">
-      <h3>🧠 Insights</h3>
-      <ul id="insightsList"></ul>
-    </div>
+    <ul id="insightsList"></ul>
+    <div id="heatmap" class="heatmap"></div>
 
-    <div class="heatmap" id="heatmap"></div>
-
-    <button onclick="exportCSV()">Export CSV</button>
+    <button id="exportBtn">Export CSV</button>
   </div>
 
 </div>
 
-<script type="module" src="js/firebase.js"></script>
 <script type="module" src="js/app.js"></script>
-<script src="js/dashboard.js"></script>
-
 </body>
 </html>
