@@ -1,7 +1,7 @@
 import {
   db, collection, addDoc, getDocs,
   deleteDoc, updateDoc, doc
-} from "./firebase.js";
+} from "./js/firebase.js";
 
 let tasks = [];
 let chart;
