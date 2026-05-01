@@ -85,6 +85,12 @@ function render() {
     list.appendChild(li);
   });
 
+  li.style.opacity = "0";
+requestAnimationFrame(() => {
+  li.style.transition = "0.3s";
+  li.style.opacity = "1";
+});
+
   updateChart();
   updateScore();
   updateInsights();
