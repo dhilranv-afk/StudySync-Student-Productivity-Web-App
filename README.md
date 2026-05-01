@@ -1,100 +1,225 @@
-# StudySync – Student Productivity Web App
+# ☕ StudySync — Student Productivity Web App
 
-## 📌 Overview
-StudySync is a web-based productivity tool designed to help students manage tasks, track study sessions, and monitor their progress.
-
-This project was built as part of a collaborative assignment focusing on teamwork, GitHub workflow, and frontend development.
+> A modern productivity dashboard that helps students manage tasks, track focus sessions, and analyze performance using real-time analytics.
 
 ---
 
-## 🎯 Features
+## 🚀 Live Demo
 
-- Task Manager (add, complete, delete tasks)
-- Study Timer (Pomodoro-style focus sessions)
-- Progress Dashboard (charts using Chart.js)
-- Habit Tracker (daily streak tracking)
-- Local Storage (data saved in browser)
+🔗 https://dhilranv-afk.github.io/StudySync-Student-Productivity-Web-App/
+---
+
+## 📸 Preview
+
+![App Demo](assets/demo.gif)
+
+---
+
+## 🎯 Project Overview
+
+**StudySync** is a full-stack productivity application designed for students who want to stay organized and improve their study habits.
+
+It combines **task management**, **focus tracking**, and **data-driven insights** into a single, intuitive interface.
+
+---
+
+## ✨ Key Features
+
+### 📝 Task Management
+
+* Add, complete, and delete tasks
+* Persistent storage using Firebase Firestore
+* Real-time UI updates
+
+### ⏱️ Focus Timer
+
+* Pomodoro-style countdown timer
+* Visual coffee animation ☕ during sessions
+* Session tracking for analytics
+
+### 📊 Analytics Dashboard
+
+* Dynamic charts powered by Chart.js
+* Weekly productivity tracking
+* Task completion vs focus sessions
+
+### 🔥 Productivity Score
+
+* Weighted scoring system:
+
+  * Tasks completed → 70%
+  * Study sessions → 30%
+* Real-time updates
+
+### 🗓️ Activity Heatmap
+
+* GitHub-style contribution grid
+* Visualizes productivity over time
+
+### 🧠 Smart Insights
+
+* Rule-based analytics engine
+* Provides feedback like:
+
+  * “Above weekly average”
+  * “Low activity detected”
+  * “Strong focus sessions today”
+
+### 📤 Data Export
+
+* Export productivity data as CSV
+* Enables external analysis
+
+---
+
+## 🏗️ Architecture
+
+### Frontend
+
+* HTML5, CSS3, JavaScript (modular)
+* Responsive layout with modern UI design
+
+### Backend
+
+* Firebase Firestore (NoSQL database)
+* Cloud-based data persistence
+
+### Data Flow
+
+User Action → Firebase → UI Render → Analytics Engine → Dashboard Visualization
 
 ---
 
 ## 🧰 Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap
-- Chart.js
-- GitHub Pages (deployment)
+* HTML5 / CSS3 / JavaScript
+* Firebase Firestore
+* Chart.js
+* Git & GitHub
+* Firebase Hosting
 
 ---
 
-## 🚀 Live Demo
-https://dhilranv-afk.github.io/StudySync-Student-Productivity-Web-App/
+## 📁 Project Structure
+
+```
+studysync/
+│
+├── public/
+│   └── index.html
+│
+├── src/
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── dashboard.js
+│   │   └── firebase.js
+│   │
+│   └── css/
+│       └── style.css
+│
+├── assets/
+│   ├── demo.gif
+│   └── screenshots/
+│
+└── README.md
+```
 
 ---
 
-## 🎥 Demo
-[Demo](assets/demo.mov)
+## ⚙️ Installation & Setup
 
-(https://youtu.be/vNaPJjxiOlw)
+### 1. Clone Repository
 
----
+```
+git clone https://github.com/your-username/studysync.git
+cd studysync
+```
 
-## 👥 Team Roles
+### 2. Configure Firebase
 
-- Kiera Brusey / Ranveer Dhillon - Frontend Developer – UI and layout
-- Prince Onyido - JavaScript Developer – functionality
-- Ranveer Dhillon - Team Lead – GitHub management
-- Miguel Aramburo Arias - Design Specialist – UI/UX
+* Go to Firebase Console
+* Create a project
+* Replace config in `firebase.js`
 
----
+### 3. Run Locally
 
-## 📂 Project Structure
-
-css/        → Styles  
-js/         → JavaScript logic  
-pages/      → Additional pages  
-assets/     → Images and icons  
-docs/       → Documentation and screenshots  
+```
+open index.html
+```
 
 ---
 
-## 🔄 Git Workflow
+## 🌐 Deployment
 
-- feature/task-manager
-- feature/timer
-- feature/dashboard
+Deployed using Firebase Hosting:
 
-All changes are made using Pull Requests and reviewed before merging.
-
----
-
-## ⏳ Timeline
-
-- Week 1 – Planning & setup  
-- Week 2 – Layout & styling  
-- Week 3 – Core features  
-- Week 4 – Testing & deployment  
+```
+firebase login
+firebase init
+firebase deploy
+```
 
 ---
 
-## 📚 What We Learned
+## 👥 Team & Contributions
 
-- Team collaboration using GitHub  
-- JavaScript functionality  
-- Debugging and problem-solving  
-- UI/UX design basics  
-
----
-
-## ⚠️ Challenges
-
-- Debugging JavaScript  
-- Merge conflicts  
-- Keeping consistent code  
+| Name            | Role           | Contribution                                    |
+| --------------- | -------------- | ----------------------------------------------- |
+| Ranveer Dhillon | Full Stack Dev | Core app logic, Firebase integration, analytics |
 
 ---
 
-## 📎 Notes
+## 🧠 Technical Highlights
 
-This project was created for academic purposes as part of a course assignment.
+* Modular JavaScript architecture
+* Real-time database integration (Firestore)
+* Data visualization with Chart.js
+* Custom analytics engine (score + insights)
+* Performance-focused DOM updates
+* Scalable project structure
+
+---
+
+## 📚 Lessons Learned
+
+* Importance of clean architecture (frontend vs backend separation)
+* Managing async data with Firebase
+* Building user-focused analytics features
+* Collaborating using GitHub workflows (branches, PRs, reviews)
+
+---
+
+## 🚀 Future Improvements
+
+* User authentication (multi-user support)
+* AI-powered productivity recommendations
+* Mobile-first optimization
+* Backend API (Node.js alternative)
+* Notifications & reminders
+
+---
+
+## 📌 Repository
+
+🔗 https://github.com/dhilranv-afk/StudySync-Student-Productivity-Web-App
+
+---
+
+## 🎥 Presentation Video
+
+[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
+
+---
+
+## 🏆 Final Notes
+
+This project demonstrates:
+
+* Full-stack development skills
+* Real-world application design
+* Data-driven feature implementation
+* Production-ready deployment
+
+---
+
+> Built with focus, caffeine, and consistency ☕
