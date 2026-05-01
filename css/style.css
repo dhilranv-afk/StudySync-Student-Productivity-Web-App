@@ -1,56 +1,122 @@
+/* ===== Base ===== */
+:root {
+  --bg: #f5f5f7;
+  --card: rgba(255,255,255,0.75);
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --accent: #0071e3;
+  --border: rgba(0,0,0,0.06);
+}
+
 body {
   margin: 0;
-  font-family: Arial;
-  background: #f4f6f8;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
-header {
+/* ===== Nav ===== */
+.nav {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
-  background: white;
+  padding: 20px 40px;
+  font-weight: 500;
 }
 
-.container {
+/* ===== Layout ===== */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+  gap: 24px;
+  padding: 20px 40px;
 }
 
+/* ===== Cards ===== */
 .card {
-  background: white;
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
   padding: 20px;
-  border-radius: 12px;
+  transition: transform 0.2s ease;
 }
 
-button {
-  margin-top: 10px;
-  padding: 8px;
-  background: #6366f1;
-  color: white;
-  border: none;
-  cursor: pointer;
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== Inputs ===== */
+.input-row {
+  display: flex;
+  gap: 10px;
 }
 
 input {
-  padding: 8px;
-  width: 70%;
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  outline: none;
 }
 
+/* ===== Buttons ===== */
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.secondary {
+  background: #e5e5ea;
+  color: #000;
+}
+
+.full {
+  width: 100%;
+}
+
+/* ===== Tasks ===== */
 li {
   display: flex;
   justify-content: space-between;
+  padding: 10px;
   margin: 6px 0;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.03);
+  transition: 0.2s;
 }
 
-/* Coffee animation */
+li:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* ===== Timer ===== */
+.center {
+  text-align: center;
+}
+
+.timer {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+/* ===== Coffee Animation ===== */
 .cup {
   width: 60px;
   height: 50px;
-  background: brown;
+  background: #6b4226;
   margin: auto;
   position: relative;
+  border-radius: 0 0 12px 12px;
 }
 
 .steam {
@@ -58,35 +124,61 @@ li {
   width: 6px;
   height: 20px;
   background: white;
+  opacity: 0.7;
   animation: steam 2s infinite;
 }
 
 @keyframes steam {
-  to { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(-25px); opacity: 0; }
 }
 
 .cup.active {
-  animation: bounce 1s infinite;
+  animation: float 2s infinite ease-in-out;
 }
 
-@keyframes bounce {
-  50% { transform: translateY(-5px); }
+@keyframes float {
+  50% { transform: translateY(-6px); }
 }
 
-/* Heatmap */
+/* ===== Score ===== */
+.score-block {
+  text-align: center;
+}
+
+.score-block h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* ===== Insights ===== */
+.insights {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ===== Heatmap ===== */
 .heatmap {
   display: grid;
   grid-template-columns: repeat(7,1fr);
-  gap: 4px;
-  margin-top: 10px;
+  gap: 6px;
+  margin: 10px 0;
 }
 
 .day {
   padding-bottom: 100%;
-  background: #e5e7eb;
+  border-radius: 4px;
+  background: #e5e5ea;
 }
 
 .level-1 { background: #c7d2fe; }
 .level-2 { background: #818cf8; }
 .level-3 { background: #4f46e5; }
-.level-4 { background: #312e81; }
+.level-4 { background: #1e1b4b; }
+
+/* ===== Dark Mode ===== */
+body.dark {
+  --bg: #000;
+  --card: rgba(30,30,30,0.7);
+  --text: #fff;
+  --muted: #aaa;
+}
