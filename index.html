@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>StudySync</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Inter font (clean, Apple-like) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
-<header>
-  <h1>☕ StudySync</h1>
-  <button id="darkToggle">🌙</button>
+<header class="nav">
+  <h1>StudySync</h1>
+  <button id="darkToggle" class="icon-btn">🌙</button>
 </header>
 
-<div class="container">
+<main class="grid">
 
   <!-- TASKS -->
-  <div class="card">
+  <section class="card">
     <h2>Tasks</h2>
-    <input id="taskInput" placeholder="Add a task..." />
-    <button id="addBtn">Add</button>
+    <div class="input-row">
+      <input id="taskInput" placeholder="Add a task..." />
+      <button id="addBtn">Add</button>
+    </div>
     <ul id="taskList"></ul>
-  </div>
+  </section>
 
   <!-- TIMER -->
-  <div class="card">
-    <h2>Focus Mode</h2>
+  <section class="card center">
+    <h2>Focus</h2>
 
     <div class="cup" id="cup">
       <div class="steam s1"></div>
@@ -33,33 +41,34 @@
       <div class="steam s3"></div>
     </div>
 
-    <h1 id="timer">25:00</h1>
-    <button id="startTimer">Start</button>
-    <button id="resetTimer">Reset</button>
-  </div>
+    <h1 id="timer" class="timer">25:00</h1>
+
+    <div class="row">
+      <button id="startTimer">Start</button>
+      <button id="resetTimer" class="secondary">Reset</button>
+    </div>
+  </section>
 
   <!-- DASHBOARD -->
-  <div class="card">
-    <h2>Dashboard</h2>
+  <section class="card">
+    <h2>Analytics</h2>
 
     <canvas id="chart"></canvas>
 
-    <div class="score">
-      <h3>🔥 Productivity Score</h3>
+    <div class="score-block">
+      <p>Productivity Score</p>
       <h1 id="score">0</h1>
     </div>
 
-    <ul id="insightsList"></ul>
+    <ul id="insightsList" class="insights"></ul>
+
     <div id="heatmap" class="heatmap"></div>
 
-    <button id="exportBtn">Export CSV</button>
-  </div>
+    <button id="exportBtn" class="secondary full">Export Data</button>
+  </section>
 
-</div>
+</main>
 
 <script type="module" src="js/app.js"></script>
-  <script type="module" src="js/dashboard.js"></script>
-  <script type="module" src="js/tasks.js"></script>
-  <script type="module" src="js/timer.js"></script>
 </body>
 </html>
